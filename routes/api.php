@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AmoCRM\LeadsController;
+use App\Http\Controllers\Api\AmoCRM\AmoCRMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('amocrm')->group(function () {
+	Route::get('/', [AmoCRMController::class, 'index']);
 	Route::get('/leads/{id}', [LeadsController::class, 'get_lead_by_id']);
 });

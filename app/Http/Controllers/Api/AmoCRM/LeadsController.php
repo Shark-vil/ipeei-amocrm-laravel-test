@@ -15,6 +15,9 @@ class LeadsController extends Controller
 		$this->client = new ClientACRM();
 	}
 
+	/**
+	 * /api/amocrm/leads/{id}
+	 */
   public function get_lead_by_id(int $id)
 	{
 		$entry = $this->client->getLeadById($id);
