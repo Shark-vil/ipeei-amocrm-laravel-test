@@ -15,9 +15,9 @@ class CreateAcrmClientsTable extends Migration
 	{
 		Schema::create('acrm_clients', function (Blueprint $table) {
 			$table->id();
-			$table->string('accessToken');
-			$table->string('refreshToken');
-			$table->string('expires');
+			$table->string('accessToken', 1500);
+			$table->string('refreshToken', 1500);
+			$table->unsignedBigInteger('expires');
 			$table->string('baseDomain');
 			$table->timestamps();
 		});
