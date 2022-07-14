@@ -35,7 +35,7 @@ class AmoCRMController extends Controller
 			$accessToken = $apiClient->getOAuthClient()->getAccessTokenByCode($request->input('code'));
 
 			if (!$accessToken->hasExpired()) {
-				saveToken([
+				return response()->json([
 					'accessToken' => $accessToken->getToken(),
 					'refreshToken' => $accessToken->getRefreshToken(),
 					'expires' => $accessToken->getExpires(),
